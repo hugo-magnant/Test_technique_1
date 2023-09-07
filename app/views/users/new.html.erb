@@ -1,0 +1,28 @@
+<!-- Conteneur principal centré -->
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <!-- Titre de la page -->
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Créer un nouvel utilisateur</h2>
+  </div>
+  <!-- Formulaire d'inscription -->
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <!-- Début du formulaire Rails -->
+    <%= form_with(model: @user, local: true, url: users_path, method: :post, html: { class: "space-y-6" }) do |f| %>
+      <!-- Section pour le champ pseudo -->
+      <div>
+        <div class="flex items-center justify-between">
+          <!-- Étiquette pour le champ pseudo -->
+          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Pseudo</label>
+        </div>
+        <!-- Zone de texte pour le pseudo -->
+        <div class="mt-2">
+          <%= f.text_field :pseudo, maxlength: 3, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6", required: true %>
+        </div>
+      </div>
+      <!-- Bouton d'envoi -->
+      <div>
+        <%= f.submit "S'inscrire", class: "cursor-pointer flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+      </div>
+    <% end %>
+  </div>
+</div>
