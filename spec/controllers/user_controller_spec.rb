@@ -6,10 +6,13 @@ RSpec.describe UsersController, type: :controller do
     # Contexte où le pseudo est valide.
     context "with valid pseudo" do
 
-      # Test pour vérifier si un nouvel utilisateur est créé avec un pseudo en majuscules.
-      it "creates a new user with uppercase pseudo" do
-        post :create, params: { user: { pseudo: "abc" } }, format: :json
-        expect(User.last.pseudo).to eq("ABC")
+      # Test pour vérifier qu'un utilisateur n'est pas créé avec un pseudo en minuscules.
+      it "does not create a user with lowercase pseudo" do
+        expect {
+          post :create, params: { user: { pseudo: "abc" } }, format: :json
+        }.not_to change(User, :count)
+
+        expect(response).to have_http_status(:bad_request)
       end
 
       # Test pour vérifier si la réponse JSON retournée contient le statut 'created' et le pseudo.

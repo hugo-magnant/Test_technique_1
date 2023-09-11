@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ce README documente les étapes nécessaires pour mettre en route l'application Cheerz.
 
-Things you may want to cover:
+#
+Informations importantes:
+* Ruby version : 3.2.2
+* Rails version : 7.0.6
 
-* Ruby version
+* Dépendances du système : PostgreSQL, Rspec, FactoryBot.
 
-* System dependencies
+* Configuration : Clonez le dépôt sur votre machine. Naviguez vers le répertoire du projet. Exécutez bundle install pour installer les dépendances des gemmes.
 
-* Configuration
+* Création et Initialisation de la base de données : Pour configurer la base de données, exécutez "rails db:create db:migrate"
 
-* Database creation
+* Comment exécuter la suite de tests : Utilisez la commande "rspec" pour exécuter la suite de tests.
 
-* Database initialization
+* Utilisation via l'interface de ligne de commande : Lancez l'application avec "sudo ./bin/dev" puis éxecutez la commande "curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d '{"user": {"pseudo": "ABC"}}' http://localhost:3000/users".
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Utilisation via l'interface : Lancez l'application avec "sudo ./bin/dev". L'application a également une interface utilisateur pour interagir avec elle. Accédez simplement à http://localhost:3000/, suivez les instructions à l'écran et utilisez le formulaire pour interagir avec l'application.
