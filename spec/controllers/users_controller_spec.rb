@@ -10,17 +10,21 @@ RSpec.describe UsersController, type: :controller do
 
   describe "POST #create" do
     context "with valid params" do
+      let(:valid_pseudo) { build(:user).pseudo }
+
       it "creates a new user" do
         expect {
-          post :create, params: { user: { pseudo: "XYZ" } }
+          post :create, params: { user: { pseudo: valid_pseudo } }
         }.to change(User, :count).by(1)
       end
     end
 
     context "with invalid params" do
+      let(:invalid_pseudo) { "XY" }
+
       it "does not create a new user" do
         expect {
-          post :create, params: { user: { pseudo: "XY" } }
+          post :create, params: { user: { pseudo: invalid_pseudo } }
         }.not_to change(User, :count)
       end
     end

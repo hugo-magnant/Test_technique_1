@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  let(:user) { User.new(pseudo: "ABC") }
+  let(:user) { build(:user) }
 
   it "is valid with a 3-letter uppercase pseudo" do
     expect(user).to be_valid
