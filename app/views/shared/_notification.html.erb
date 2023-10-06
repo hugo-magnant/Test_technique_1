@@ -1,0 +1,26 @@
+<% if message %>
+  <div x-data="{ show: true }" x-show="show" class="w-full flex justify-center">
+    <div class="z-50 w-11/12 absolute rounded-md <%= bg_color %> p-4 mx-auto mt-24 max-w-5xl">
+      <div class="flex">
+        <div class="flex-shrink-0">
+          <svg class="h-5 w-5 <%= svg_color %>" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <%= svg_path.html_safe %>
+          </svg>
+        </div>
+        <div class="ml-3">
+          <p class="text-sm font-medium <%= text_color %>"><%= message %></p>
+        </div>
+        <div class="ml-auto pl-3">
+          <div class="-mx-1.5 -my-1.5">
+            <button @click="show = false" type="button" class="inline-flex rounded-md <%= button_color %> hover:bg-<%= hover_color %> focus:outline-none focus:ring-2 focus:ring-<%= focus_ring_color %> focus:ring-offset-2 focus:ring-offset-<%= focus_offset_color %>">
+              <span class="sr-only">Dismiss</span>
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <%= close_svg_path.html_safe %>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
